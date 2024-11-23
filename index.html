@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting Card</title>
+    <style>
+        :root {
+            --heart-color: #ff5873;
+            --hover-color: #C1275C;
+            --background-color: #ebc8c0;
+            --white: #fff;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            color: var(--heart-color);
+        }
+
+        .card {
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+            background: white;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .title {
+            font-size: 24px;
+            margin-top: 0;
+        }
+
+        .message {
+            font-size: 16px;
+            margin: 20px 0;
+        }
+
+        .button {
+            background-color: var(--heart-color);
+            color: var(--white);
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 80px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: var(--hover-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1 class="title" id="greeting">Happy Valentine's Day!</h1>
+        <p class="message" id="message">You mean the world to me!</p>
+        <button class="button" onclick="customizeCard()">Customize</button>
+        <button class="button" id="yesButton">YES</button>
+        <button class="button" id="noButton">NO</button>
+    </div>
+
+    <script>
+        function customizeCard() {
+            let newGreeting = prompt("Enter a new greeting:");
+            let newMessage = prompt("Enter a new message:");
+
+            if (newGreeting !== null && newMessage !== null) {
+                document.getElementById('greeting').textContent = newGreeting;
+                document.getElementById('message').textContent = newMessage;
+            }
+        }
+
+        document.getElementById('yesButton').addEventListener('click', () => {
+            alert("I'm glad you said yes!");
+        });
+
+        document.getElementById('noButton').addEventListener('click', () => {
+            alert("Let's try again!");
+        });
+    </script>
+
+</body>
+</html>
